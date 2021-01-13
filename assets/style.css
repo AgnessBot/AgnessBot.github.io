@@ -43,14 +43,19 @@ body {
     margin: 2px 0px 12px 0px;
 }
 
+#main > .info > .buttons {
+    display: flex;
+}
+
 #main > .info > .buttons > a {
     color: #ccc;
     margin: 0px 8px;
     font-size: large;
     padding: 8px 18px;
+    text-align: center;
     border-radius: 5px;
     text-decoration: none;
-    transition: 250ms filter;
+    transition: filter 250ms;
     background-color: #c03121;
 }
 
@@ -64,4 +69,18 @@ body {
 
 #main > .info > .buttons > a:hover {
     filter: brightness(0.85);
+}
+
+@media (max-width: 425px) {
+    #main > .info > .buttons {
+        flex-direction: column;
+    }
+
+    #main > .info > .buttons > a {
+        margin: 0px 0px 10px 0px;
+    }
+
+    #main > .info > .buttons > a:last-child {
+        margin: 0px;
+    }
 }
