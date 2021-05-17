@@ -13,20 +13,56 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="icon" type="image/png" href="assets/agness_rounded.png">
     <title>Agness</title>
+    <!-- flex flex-col justify-center -->
 </head>
-<body class="bg-gray-200">
-    <div>
-        <div class="flex justify-center py-10 flex-col">
-            <p class="text-center text-black text-5xl font-bold">Agness</p>
-            <div class="my-5 border-8 border-blue-500 rounded-full self-center shadow-2xl">
-                <img src="assets/agness_rounded.png" alt="logo" width="300">
+<body class="bg-gray-dark">
+    <header class="bg-blue-burple" style="height: 95vh;">
+        <nav class="container px-6 py-4 mx-auto flex justify-between">
+            <div class="flex items-center">
+                <img src="assets/agness_rounded.png" alt="agness logo" width="40">
+                <a class="text-xl font-semibold text-white px-3" href="#">
+                    Agness
+                </a>
             </div>
-            <p class="font-secundary_text font-bold text-center max-w-md self-center text-xl">Bot of reacion roles, fully customizable embeds, tags, welcomes and leaves</p>
+            <div class="flex items-center">
+                <a class="text-gray-100 font-bold px-5 hover:bg-purple-discordOld_hover" href="#">Home</a>
+                <a class="text-gray-100 font-bold px-5 hover:bg-purple-discordOld_hover" href="#">About</a>
+                <a class="text-gray-100 font-bold px-5 hover:bg-purple-discordOld_hover" href="#">Commands</a>
+            </div>
+        </nav>
+        <div class="flex justify-center items-center flex-col m-5">
+            <div class="my-5 border-8 border-green-light rounded-full shadow-2xl">
+                <img src="assets/agness_rounded.png" alt="logo" width="200">
+            </div>
+            <p class="text-center text-white text-4xl font-bold mb-5">Agness</p>
+            <p class="font-secundary_text font-bold text-center max-w-md self-center text-base text-gray-100">Bot of reacion roles, fully customizable embeds, tags, welcomes and leaves</p>
+            <div class="flex justify-center mt-5 mb-6">
+                <div class="px-8 py-2 bg-white rounded-2xl p-2 w-60 mx-4 hover:shadow-2xl">
+                    <a class="font-semibold text-black text-center" href="#">
+                        Invite me to your server
+                    </a>
+                </div>
+                <div class="px-8 py-2 bg-gray-dark rounded-2xl p-2 mx-4 hover:shadow-2xl">
+                    <a class="font-semibold text-white text-center" href="#">
+                        Join the support server
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-    <section>
-        <img src="https://i.imgur.com/ptcEm7s.gif" alt="preview">
-        <p></p>
+    </header>
+    <section class="flex flex-col justify-center items-center pt-5">
+        <div class="bg-purple-discordOld flex max-w-6xl rounded-2xl p-5 m-5">
+            <div class="p-5">
+            <p class="text-white text-xl">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores velit aperiam corrupti debitis, fugiat labore quidem numquam nobis repellendus eveniet amet eius! Nisi soluta minus quisquam earum. Quis, quas omnis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim omnis excepturi laborum quo assumenda dolorum natus distinctio delectus, magni reprehenderit accusamus quam debitis placeat aliquid </p>
+            </div>
+            <img class="h-auto" src="https://i.imgur.com/Xd8MyGc.png" alt="welcome category"/>
+        </div>
+        <div class="bg-purple-discordOld flex max-w-6xl rounded-2xl p-5 m-5">
+            <img class="h-auto" src="https://i.imgur.com/Xd8MyGc.png" alt="welcome category"/>
+            <div class="p-5">
+            <p class="text-white text-xl">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores velit aperiam corrupti debitis, fugiat labore quidem numquam nobis repellendus eveniet amet eius! Nisi soluta minus quisquam earum. Quis, quas omnis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim omnis excepturi laborum quo assumenda dolorum natus distinctio delectus, magni reprehenderit accusamus quam debitis placeat aliquid </p>
+            </div>
+        </div>
     </section>
 </body>
 </html>
