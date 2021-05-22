@@ -55,14 +55,12 @@
                 const useState = React.useState;
                 const categories = [...new Set(commands.map((a) => a.category))];
                 const CommandsComponent = () => {
-                    const [categoryState, setCategoryState] = useState();
-                    const [searchCommand, setSearchCommand] = useState();
+                    const [categoryState, setCategoryState] = useState("");
+                    const [searchCommand, setSearchCommand] = useState("");
                     const commandsFilter = commands
                         .filter(command => {
-                            if(!searchCommand && !categoryState) {
+                            if(!searchCommand && !categoryState && command.name.toLowerCase().includes(searchCommand)) {
                                 return command;
-                            } else if (!categoryState && command.name.toLowerCase().includes(searchCommand)) {
-                                return command
                             } else if (command.name.toLowerCase().includes(searchCommand) && command.category === categoryState) {
                                 return command
                             }
