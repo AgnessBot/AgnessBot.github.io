@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="msapplication-TileColor" content="#24252a">
+    <meta name="theme-color" content="#24252a">
+    <meta property="og:image" content="https://agnessbot.github.io/src/assets/agness_rounded.png">
+    <meta property="og:title" content="Agness">
+    <meta property="og:description" content="I'm a bot in charge of interaction, entertainment and giving roles through reactions, so that your server is a much more attractive and pleasant place.">
+    <meta property="description" content="I'm a bot in charge of interaction, entertainment and giving roles through reactions, so that your server is a much more attractive and pleasant place.">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" type="image/png" href="assets/agness_rounded.png">
+    <title>Agness</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body id="xd" class="ScrollReveal bg-gray-dark">
+    <header class="bg-blue-burple flex-col">
+        <nav class="ScrollReveal container px-4 py-2 mx-auto">
+            <div class="flex justify-between items-center flex-col md:flex-row">
+                <div class="ScrollReveal flex items-center my-2">
+                    <img src="assets/agness_rounded.png" alt="agness logo" width="40">
+                    <a class="ScrollReveal text-xl font-semibold text-white px-3 hover:underline" href="#">
+                        Agness
+                    </a>
+                </div>
+                <div class="ScrollReveal flex items-center text-base md:text-lg p-2 text-gray-100">
+                    <a class="ScrollReveal font-semibold hover:underline rounded-lg px-3 md:px-6 py-1" href="">Home</a>
+                    <a class="ScrollReveal font-semibold hover:underline rounded-lg px-3 md:px-6 py-1" href="#">About</a>
+                    <a class="ScrollReveal font-semibold hover:underline rounded-lg px-3 md:px-6 py-1" href="#">Commands</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="flex justify-center items-center flex-col px-60">
+        <div class="mt-10 bg-gradient-to-tl from-blue-900 to-blue-burple w-full text-white p-5 rounded">
+            <h1 class="font-black">PREFIX</h1>
+            <p>Default: a?</p>
+            <p>And @mention prefix</p>
+            <h1 class="text-xl font-semibold">Mode of use</h1>
+            <p>The [ and ] around the argument mean that it is required.</p>
+            <p> The < and > around the argument mean that it is optional.</p>
+        </div>
+        <div id="commands" class="flex justify-center items-center mt-10 flex-col">
+    </div>
+    </div>
+    <script type="text/babel">
+        fetch('https://agness-469c6-default-rtdb.firebaseio.com/commands.json')
+            .then(response => response.json())
+            .then(commands => {
+                const $commands = document.getElementById("commands");
+                const useState = React.useState;
+                const categories = [...new Set(commands.map((a) => a.category))];
+                const CommandsComponent = () => {
+                    const [categoryState, setCategoryState] = useState();
+                    const [searchCommand, setSearchCommand] = useState();
+                    const commandsFilter = commands
+                        .filter(command => {
+                            if(!searchCommand && !categoryState) {
+                                return command;
+                            } else if (!categoryState && command.name.toLowerCase().includes(searchCommand)) {
+                                return command
+                            } else if (command.name.toLowerCase().includes(searchCommand) && command.category === categoryState) {
+                                return command
+                            }
+                        })
+                        let hasCommandFilter;
+                        if(commandsFilter.length) {
+                            hasCommandFilter = <table className={"table-auto w-full"}>
+                                <thead>
+                                    <tr>
+                                        <th className={"border border-white px-4 py-2 text-white font-medium"}>
+                                            Command
+                                        </th>
+                                        <th className={"border border-white px-4 py-2 text-white font-medium"}>
+                                            Description
+                                        </th>
+                                        <th className={"border border-white px-4 py-2 text-white font-medium"}>
+                                            Usage
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {commandsFilter
+                                        .map((command, index) => {
+                                        return (
+                                            <tr key={index}>
+                                                <td
+                                                    className={"border border-white px-4 py-2 text-white font-medium"}
+                                                >
+                                                    {command.name}
+                                                </td>
+                                                <td
+                                                    className={"border border-white px-4 py-2 text-white font-medium"}
+                                                >
+                                                    {command.description.en}
+                                                </td>
+                                                <td
+                                                    className={"border border-white px-4 py-2 text-white font-medium"}
+                                                >
+                                                    {command.usage}
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        } else {
+                            hasCommandFilter = <h1 className="text-white text-3xl text-center">No hay comandos f xd</h1>
+                        }
+                    return (
+                        <div className={"flex justify-center items-center flex-col w-full"}>
+                            <div className={"flex justify-center items-center flex-col lg:flex-row bg-gray-700 max-w-6xl w-full"}>
+                                {categories.map((category, index) => {
+                                    return (
+                                        <a
+                                            className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded-2xl mx-5 max-w-3xl"}
+                                            key={index}
+                                            onClick={() => setCategoryState(category)}
+                                        >
+                                        {category}
+                                        [
+                                        {
+                                        commands.filter(
+                                            (command) => command.category === category
+                                        ).length
+                                        }
+                                        ]
+                                        </a>
+                                    );
+                                })}
+                            </div>
+                            <input 
+                                className={"border border-red-500 bg-white text-gray-900 appearance-none block w-full rounded-md py-3 px-4 focus:outline-none"} 
+                                placeholder="Command"
+                                onChange={(event) => {
+                                    setSearchCommand(event.target.value.trim())
+                                }}
+                            />
+                            {hasCommandFilter}
+                    </div>
+                    )
+                }
+                ReactDOM.render(
+                    <div>
+                        <CommandsComponent/>
+                    </div>,
+                $commands);
+            });
+    </script>
+</body>
+</html>
