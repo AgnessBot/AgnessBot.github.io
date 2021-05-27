@@ -14,10 +14,10 @@
     <title>Agness</title>
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/scrollreveal"></script>
 </head>
-<body id="xd" class="ScrollReveal bg-gray-dark">
+<body class="ScrollReveal bg-gray-dark">
     <header class="bg-blue-burple flex-col">
         <nav class="ScrollReveal container px-4 py-2 mx-auto">
             <div class="flex justify-between items-center flex-col md:flex-row">
@@ -35,7 +35,7 @@
             </div>
         </nav>
     </header>
-    <div class="flex justify-center items-center flex-col px-60">
+    <div class="flex justify-center items-center flex-col px-5 md:px-40">
         <div class="mt-10 bg-gradient-to-tl from-blue-900 to-blue-burple w-full text-white p-5 rounded">
             <h1 class="font-black">PREFIX</h1>
             <p>Default: a?</p>
@@ -54,86 +54,113 @@
                 const $commands = document.getElementById("commands");
                 const useState = React.useState;
                 const categories = [...new Set(commands.map((a) => a.category))];
+                console.log(categories)
                 const CommandsComponent = () => {
-                    const [categoryState, setCategoryState] = useState("");
+                    const [categoryState, setCategoryState] = useState("All");
                     const [searchCommand, setSearchCommand] = useState("");
                     const commandsFilter = commands
                         .filter(command => {
-                            if(!searchCommand && !categoryState && command.name.toLowerCase().includes(searchCommand)) {
+                            if(!searchCommand && categoryState === "All") {
                                 return command;
-                            } else if (command.name.toLowerCase().includes(searchCommand) && command.category === categoryState) {
-                                return command
+                            } else if (command.name.toLowerCase().includes(searchCommand) && command.category === categoryState || categoryState === 'All' && command.name.toLowerCase().includes(searchCommand)) {
+                                return command;
                             }
                         })
                         let hasCommandFilter;
                         if(commandsFilter.length) {
-                            hasCommandFilter = <table className={"table-auto w-full"}>
-                                <thead>
-                                    <tr>
-                                        <th className={"border border-white px-4 py-2 text-white font-medium"}>
-                                            Command
-                                        </th>
-                                        <th className={"border border-white px-4 py-2 text-white font-medium"}>
-                                            Description
-                                        </th>
-                                        <th className={"border border-white px-4 py-2 text-white font-medium"}>
-                                            Usage
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {commandsFilter
-                                        .map((command, index) => {
-                                        return (
-                                            <tr key={index}>
-                                                <td
-                                                    className={"border border-white px-4 py-2 text-white font-medium"}
+                            hasCommandFilter = 
+                            <div className={"bg-gray-600 p-5 rounded-md my-10"}>
+                                <table className={"w-full bg-gray-color-dark-200 shadow-inner rounded-t-2xl"}>
+                                    <thead> 
+                                        <tr className={"text-white bg-blue-burple font-bold"}>
+                                            <th className={"border border-white px-4 py-2 font-medium"}>
+                                                Command
+                                            </th>
+                                            <th className={"border border-white px-4 py-2 font-medium"}>
+                                                Description
+                                            </th>
+                                            <th className={"border border-white px-4 py-2 font-medium"}>
+                                                Usage
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className={"text-gray-color_text text-xs"}>
+                                        {
+                                            commandsFilter
+                                            .map((command, index) => {
+                                            return (
+                                                <tr 
+                                                    key={index}
                                                 >
-                                                    {command.name}
-                                                </td>
-                                                <td
-                                                    className={"border border-white px-4 py-2 text-white font-medium"}
-                                                >
-                                                    {command.description.en}
-                                                </td>
-                                                <td
-                                                    className={"border border-white px-4 py-2 text-white font-medium"}
-                                                >
-                                                    {command.usage}
-                                                </td>
-                                            </tr>
-                                        );
-                                    })}
-                                </tbody>
-                            </table>
+                                                    <td
+                                                        className={"border border-white px-4 py-2 font-medium"}
+                                                    >
+                                                        {command.name}
+                                                    </td>
+                                                    <td
+                                                        className={"border border-white px-4 py-2 font-medium"}
+                                                    >
+                                                        {command.description.en}
+                                                    </td>
+                                                    <td
+                                                        className={"border border-white px-4 py-2font-medium"}
+                                                    >
+                                                        {command.usage}
+                                                    </td>
+                                                </tr>
+                                            );
+                                        })}
+                                    </tbody>
+                                </table>
+                            </div>
                         } else {
-                            hasCommandFilter = <h1 className="text-white text-3xl text-center">No hay comandos f xd</h1>
+                            
+                            hasCommandFilter = 
+                            <div className={"bg-gray-600 p-5 rounded-md my-10"}>
+                                <h1 className="text-white text-3xl text-center">Command not found</h1>
+                            </div>
                         }
                     return (
                         <div className={"flex justify-center items-center flex-col w-full"}>
-                            <div className={"flex justify-center items-center flex-col lg:flex-row bg-gray-700 max-w-6xl w-full"}>
-                                {categories.map((category, index) => {
+                            <div className={"flex justify-center items-center flex-wrap flex-col lg:flex-row bg-gray-extra_dark p-5 m-5 border-2 border-gray-color_text w-full rounded-xl"}>
+                                {['All',...categories].map((category, index) => {
+                                    if (category === "All") {
+                                        
+                                    }
                                     return (
                                         <a
-                                            className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded-2xl mx-5 max-w-3xl"}
+                                            className={
+                                                category === categoryState ?
+                                                "my-3 bg-blue-burple text-white py-2 px-4 transform rounded-md mx-5 cursor-pointer shadow-xl "
+                                                :
+                                                "my-3 bg-gray-color_dark-100 text-gray-color_text hover:bg-gray-color_hover hover:text-white duration-200 py-2 px-4 transform rounded-lg mx-5 cursor-pointer"
+                                            }
                                             key={index}
                                             onClick={() => setCategoryState(category)}
                                         >
-                                        {category}
-                                        [
-                                        {
-                                        commands.filter(
-                                            (command) => command.category === category
-                                        ).length
-                                        }
-                                        ]
+                                            <span className={"font-extrabold"}>{category}</span>
+                                            <span className={"absolute -right-3 -bottom-3 px-2 py-0.5 bg-red-500 text-white text-sm rounded-full font-extrabold shadow-2xl"}>
+                                            {
+                                            commands.filter(
+                                                (command) => {
+                                                    if(category === "All") {
+                                                        return command;
+                                                    } else if(command.category === category) {
+                                                        return command
+                                                    }
+                                                }
+                                            ).length
+                                            }
+                                            </span>
                                         </a>
                                     );
                                 })}
                             </div>
-                            <input 
-                                className={"border border-red-500 bg-white text-gray-900 appearance-none block w-full rounded-md py-3 px-4 focus:outline-none"} 
-                                placeholder="Command"
+                            <input
+                                type="text"
+                                maxLength="15"
+                                className={"bg-gray-color-dark-200 text-gray-color_text appearance-none block rounded-lg py-3 px-4 focus:outline-none my-5 w-full border-2 border-transparent focus:border-white"} 
+                                placeholder="Search"
                                 onChange={(event) => {
                                     setSearchCommand(event.target.value.trim())
                                 }}
