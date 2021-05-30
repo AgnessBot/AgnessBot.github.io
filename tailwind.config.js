@@ -14,6 +14,7 @@ module.exports = {
                     color_hover: '#3B3D42',
                     'color_dark-100': '#36393F',
                     'color-dark-200': '#202225',
+                    'bg-scrollbar': '#2E3338',
                 },
                 blue: {
                     burple: '#5865F2',
@@ -35,5 +36,5 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [],
+    plugins: [require('tailwind-scrollbar')],
 };

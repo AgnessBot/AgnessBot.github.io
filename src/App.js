@@ -5,7 +5,11 @@ import Header from './components/Header/index';
 import Navbar from './components/Navbar/index';
 const App = () => {
     return (
-        <div>
+        <div
+            className={
+                'h-32 scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100'
+            }
+        >
             <Navbar />
             <Header />
             <CardsComponent />
