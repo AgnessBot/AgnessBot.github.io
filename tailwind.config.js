@@ -23,7 +23,7 @@ module.exports = {
                     discordOld_hover: '#7B8FD4',
                 },
                 green: {
-                    light: '#57F287',
+                    light: '#85ED91',
                     hover: '#359553',
                 },
                 red: {

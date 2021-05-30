@@ -1,17 +1,41 @@
 {
-  "name": "agness",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build-css": "npx tailwindcss build src/css/styles.css -o src/css/main.css"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "autoprefixer": "^10.2.5",
-    "postcss": "^8.2.15",
-    "tailwindcss": "^2.1.2"
-  }
+    "name": "agness",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build-css": "npx tailwindcss build src/css/styles.css -o src/css/main.css",
+        "build-dev": "webpack --mode development",
+        "build-prod": "webpack --mode production",
+        "serve": "webpack serve"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.14.3",
+        "@babel/preset-env": "^7.14.2",
+        "@babel/preset-react": "^7.13.13",
+        "autoprefixer": "^10.2.6",
+        "babel-loader": "^8.2.2",
+        "css-loader": "^5.2.6",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^3.4.0",
+        "eslint-plugin-react": "^7.23.2",
+        "html-webpack-plugin": "^5.3.1",
+        "postcss": "^8.2.15",
+        "postcss-loader": "^5.3.0",
+        "prettier": "^2.3.0",
+        "react-router-dom": "^5.2.0",
+        "scrollreveal": "^4.0.9",
+        "style-loader": "^2.0.0",
+        "tailwindcss": "^2.1.2",
+        "webpack": "^5.38.1",
+        "webpack-cli": "^4.7.0",
+        "webpack-dev-server": "^3.11.2"
+    },
+    "dependencies": {
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    }
 }
