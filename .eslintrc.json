@@ -1,0 +1,33 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "standard"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "linebreak-style": "off",
+        "comma-dangle": "off",
+        "no-nested-ternary": "off",
+        "no-underscore-dangle": "off",
+        "indent": ["error", 4],
+        "global-require": "off",
+        "no-restricted-syntax" : ["error", "WithStatement"],
+        "import/no-dynamic-require": "off",
+        "consistent-return": "off",
+        "no-eval": ["error", {"allowIndirect": true}],
+        "semi":"off"
+    }
+}

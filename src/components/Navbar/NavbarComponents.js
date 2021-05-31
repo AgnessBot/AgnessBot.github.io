@@ -1,11 +1,13 @@
 import React from 'react';
-export const NavbarLogo = ({ image, image_alt, text }) => {
+import { Link } from 'react-router-dom';
+import PropType from 'prop-types';
+export const NavbarLogo = ({ image, imageAlt, text }) => {
     return (
-        <div className={'ScrollReveal flex items-center my-2'}>
+        <div className={'flex items-center my-2'}>
             <img
                 className={'rounded-full'}
                 src={image}
-                alt={image_alt}
+                alt={imageAlt}
                 width="40"
             />
             <a
@@ -18,15 +20,27 @@ export const NavbarLogo = ({ image, image_alt, text }) => {
         </div>
     );
 };
+
+NavbarLogo.propTypes = {
+    image: PropType.string,
+    imageAlt: PropType.string,
+    text: PropType.string,
+};
+
 export const NavbarLink = ({ text, toLink }) => {
     return (
-        <a
+        <Link
             className={
                 'ScrollReveal font-semibold hover:underline rounded-lg px-3 md:px-6 py-1'
             }
-            href={toLink}
+            to={toLink}
         >
             {text}
-        </a>
+        </Link>
     );
+};
+
+NavbarLink.propTypes = {
+    text: PropType.string.isRequired,
+    toLink: PropType.string.isRequired,
 };

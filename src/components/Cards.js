@@ -4,7 +4,7 @@ const CardsComponent = () => {
     return (
         <div
             className={
-                'ScrollReveal flex flex-col justify-center items-center pt-5 bg-gray-dark'
+                'flex flex-col justify-center items-center pt-5 bg-gray-dark'
             }
         >
             <Card

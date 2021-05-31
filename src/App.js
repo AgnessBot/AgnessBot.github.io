@@ -1,19 +1,30 @@
 import './css/main.css';
-import React from 'react';
-import CardsComponent from './components/Cards';
-import Header from './components/Header/index';
+import React, { useEffect } from 'react';
+import { BrowserRouter as HashRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Navbar/index';
+import HomePage from './pages/Home';
+import NotFound from './pages/NotFound';
+import ScrollReveal from 'scrollreveal';
 const App = () => {
+    useEffect(() => {
+        ScrollReveal().reveal('.ScrollReveal', {
+            reset: true,
+            delay: 250,
+            mobile: false,
+        });
+    }, []);
     return (
-        <div
+        <HashRouter
             className={
-                'h-32 scrollbar scrollbar-thumb-gray-900 scrollbar-track-gray-100'
+                'scrollbar-thin scrollbar-thumb-gray-color-dark-200 scrollbar-track-gray-bg-scrollbar overflow-y-scroll'
             }
         >
             <Navbar />
-            <Header />
-            <CardsComponent />
-        </div>
+            <Switch>
+                <Route path="/" exact component={HomePage} />
+                <Route path="*" component={NotFound} />
+            </Switch>
+        </HashRouter>
     );
 };
 export default App;

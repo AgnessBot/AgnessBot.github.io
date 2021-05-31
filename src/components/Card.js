@@ -1,15 +1,16 @@
 import React from 'react';
+import PropType from 'prop-types';
 const CardComponent = ({
     title,
     description,
     image,
-    image_alt,
-    positionFirstImage = false,
+    imageAlt,
+    positionFirstImage,
 }) => {
     return (
         <div
             className={
-                'ScrollReveal bg-purple-discordOld flex flex-col lg:flex-row rounded-2xl p-5 m-5'
+                'ScrollReveal bg-purple-discordOld flex flex-col lg:flex-row rounded-2xl p-5 m-5 max-w-6xl'
             }
         >
             {[
@@ -19,11 +20,12 @@ const CardComponent = ({
                             'h-auto rounded-2xl max-w-3xl self-center w-full hidden sm:block'
                         }
                         src={image}
-                        alt={image_alt}
+                        alt={imageAlt}
+                        key={0}
                     />,
                 ],
                 [
-                    <div className={'p-5'}>
+                    <div className={'p-5'} key={1}>
                         <h1 className={'font-bold text-2xl text-white'}>
                             {title}
                         </h1>
@@ -38,3 +40,13 @@ const CardComponent = ({
     );
 };
 export default CardComponent;
+CardComponent.propTypes = {
+    title: PropType.string.isRequired,
+    description: PropType.string.isRequired,
+    image: PropType.string.isRequired,
+    imageAlt: PropType.string.isRequired,
+    positionFirstImage: PropType.bool.isRequired,
+};
+CardComponent.defaultProps = {
+    positionFirstImage: false,
+};
