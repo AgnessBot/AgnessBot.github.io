@@ -2,8 +2,8 @@ import React from 'react';
 
 const NotFound = () => {
     return (
-        <div>
-            <div>xd</div>
+        <div className={'flex justify-center items-center'}>
+            <div>* Foto de angess * 404</div>
         </div>
     );
 };

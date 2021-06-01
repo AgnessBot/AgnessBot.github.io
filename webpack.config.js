@@ -12,10 +12,11 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: isDev ? 'main.js' : '[contenthash].js',
         publicPath: '/',
+        clean: true,
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: `${isDev ? '[name]' : '[contenthash]'}.css`
+            filename: `${isDev ? '[name]' : '[contenthash]'}.css`,
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
@@ -23,30 +24,34 @@ module.exports = {
         }),
     ],
     resolve: {
-        extensions: ['.jsx', '.js']
+        extensions: ['.jsx', '.js'],
     },
     module: {
-        rules: [{
-            test: /\.jsx?$/i,
-            exclude: /node_modules/,
-            use: ['babel-loader']
-        }, {
-            test: /\.css$/i,
-            use: [MiniCssExtractPlugin.loader, {
-                loader: 'css-loader',
-                options: {
-                    importLoaders: 1
-                }
-            }, 'postcss-loader']
-        }]
+        rules: [
+            {
+                test: /\.jsx?$/i,
+                exclude: /node_modules/,
+                use: ['babel-loader'],
+            },
+            {
+                test: /\.css$/i,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1,
+                        },
+                    },
+                    'postcss-loader',
+                ],
+            },
+        ],
     },
     optimization: {
-        minimizer: [
-            '...',
-            ...(isDev ? [] : [new CssMinimizerPlugin()])
-        ]
+        minimizer: ['...', ...(isDev ? [] : [new CssMinimizerPlugin()])],
     },
     devServer: {
         historyApiFallback: true,
-    }
+    },
 };
