@@ -11,7 +11,7 @@ const App = () => {
     useEffect(() => {
         ScrollReveal().reveal('.ScrollReveal', {
             reset: true,
-            delay: 300,
+            delay: 200,
             mobile: false,
         });
     }, []);
