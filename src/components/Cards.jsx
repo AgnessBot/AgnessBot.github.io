@@ -13,7 +13,7 @@ const CardsComponent = () => {
             />
             <Card
                 title='Embed system.'
-                description='You will be able to create rich text, to decorate your server, including it in welcomes, sheets, custom commands (tags), and much more! Remember that creativity is up to you, you are your own boss!'
+                description='You will be able to create rich text, to decorate your server, including it in welcomes, leaves, custom commands (tags), and much more! Remember that creativity is up to you, you are your own boss!'
                 image='https://i.imgur.com/wzK9ZjF.png'
                 imageAlt='embed category'
                 positionFirstImage={true}

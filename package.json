@@ -4,9 +4,9 @@
     "description": "",
     "main": "dist/index.js",
     "scripts": {
-        "build-dev": "webpack --node-env development",
-        "build-prod": "webpack --node-env production",
-        "serve": "webpack serve --node-env production",
+        "build:dev": "webpack --node-env development",
+        "build:prod": "webpack --node-env production",
+        "serve": "webpack serve --node-env production --open",
         "eslint": "eslint src/**/*.js src/**/*.jsx -c .eslintrc.json",
         "eslint-fix": "eslint src/**/*.js src/**/*.jsx -c .eslintrc.json --fix"
     },

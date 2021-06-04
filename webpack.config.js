@@ -10,7 +10,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: isDev ? 'main.js' : '[contenthash].js',
+        filename: isDev ? 'bundle.js' : '[contenthash].js',
         publicPath: '/',
         clean: true,
     },
@@ -19,8 +19,8 @@ module.exports = {
             filename: `${isDev ? '[name]' : '[contenthash]'}.css`,
         }),
         new HtmlWebpackPlugin({
-            filename: 'index.html',
             template: './public/index.html',
+            filename: 'index.html',
         }),
     ],
     resolve: {
@@ -50,8 +50,5 @@ module.exports = {
     },
     optimization: {
         minimizer: ['...', ...(isDev ? [] : [new CssMinimizerPlugin()])],
-    },
-    devServer: {
-        historyApiFallback: true,
     },
 };
