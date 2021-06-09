@@ -1,28 +1,9 @@
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const path = require('path');
-
-const isDev = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-    mode: process.env.NODE_ENV,
     entry: './src/index.js',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: isDev ? 'bundle.js' : '[contenthash].js',
-        publicPath: '/',
-        clean: true,
-    },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: `${isDev ? '[name]' : '[contenthash]'}.css`,
-        }),
-        new HtmlWebpackPlugin({
-            template: './public/index.html',
-            filename: 'index.html',
-        }),
         new CopyPlugin({
             patterns: [{ from: 'public/robots.txt', to: 'robots.txt' }],
         }),
@@ -45,14 +26,12 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             importLoaders: 1,
+                            sourceMap: true,
                         },
                     },
                     'postcss-loader',
                 ],
             },
         ],
-    },
-    optimization: {
-        minimizer: ['...', ...(isDev ? [] : [new CssMinimizerPlugin()])],
     },
 };

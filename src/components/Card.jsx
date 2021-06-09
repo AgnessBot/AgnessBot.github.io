@@ -9,18 +9,30 @@ const CardComponent = ({
     positionFirstImage,
 }) => {
     return (
-        <div className={'ScrollReveal bg-purple-discordOld flex flex-col lg:flex-row rounded-2xl p-5 m-5 max-w-6xl'}>
+        <div
+            className={
+                'ScrollReveal bg-blue-burple flex flex-col lg:flex-row rounded-2xl p-5 m-5 max-w-6xl'
+            }
+        >
             {[
-                <img className={'h-auto rounded-2xl max-w-3xl self-center w-full hidden sm:block'}
-                    src={image} alt={imageAlt} key={0} />,
+                <img
+                    className={
+                        'h-auto rounded-2xl max-w-3xl self-center w-full hidden sm:block'
+                    }
+                    src={image}
+                    alt={imageAlt}
+                    key={0}
+                />,
                 <div className={'p-5'} key={1}>
                     <h1 className={'font-bold text-2xl text-white'}>{title}</h1>
                     <br />
                     <p className={'text-white text-xl'}>{description}</p>
-                </div>
-            ].map((c) => [c]).reduce((a, b) =>
-                positionFirstImage ? a.concat(b) : b.concat(a)
-            )}
+                </div>,
+            ]
+                .map((c) => [c])
+                .reduce((a, b) =>
+                    positionFirstImage ? a.concat(b) : b.concat(a)
+                )}
         </div>
     );
 };

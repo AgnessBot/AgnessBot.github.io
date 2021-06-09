@@ -10,6 +10,7 @@ export const NavbarLogo = ({ image, imageAlt, toLink, text }) => {
                 src={image}
                 alt={imageAlt}
                 width="40"
+                height="40"
             />
             <Link
                 className={
@@ -34,7 +35,7 @@ export const NavbarLink = ({ text, toLink }) => {
     return (
         <Link
             className={
-                'ScrollReveal font-semibold hover:underline rounded-lg px-3 md:px-6 py-1  hover:shadow-2xl'
+                'ScrollReveal font-semibold hover:underline rounded-lg px-3 md:px-6 py-1 text-white'
             }
             to={toLink}
         >
