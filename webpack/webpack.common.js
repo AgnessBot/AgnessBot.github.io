@@ -34,4 +34,16 @@ module.exports = {
             },
         ],
     },
+    stats: {
+        all: false,
+        assets: true,
+        cachedAssets: true,
+        chunks: false,
+        chunkGroups: true,
+        chunkGroupChildren: true,
+        hash: true,
+        ids: true,
+        outputPath: true,
+        publicPath: true,
+    },
 };

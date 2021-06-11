@@ -2,23 +2,16 @@ import { Link } from 'react-router-dom';
 import PropType from 'prop-types';
 import React from 'react';
 
-export const NavbarLogo = ({ image, imageAlt, toLink, text }) => {
+export const NavbarLogo = ({ toLink, children }) => {
     return (
         <div className={'flex items-center my-2'}>
-            <img
-                className={'rounded-full'}
-                src={image}
-                alt={imageAlt}
-                width="40"
-                height="40"
-            />
             <Link
                 className={
                     'text-xl font-semibold text-white px-3 hover:underline'
                 }
                 to={toLink}
             >
-                {text}
+                {children}
             </Link>
         </div>
     );
@@ -28,23 +21,54 @@ NavbarLogo.propTypes = {
     image: PropType.string.isRequired,
     imageAlt: PropType.string.isRequired,
     toLink: PropType.string.isRequired,
-    text: PropType.string.isRequired,
+    children: PropType.oneOfType([
+        PropType.arrayOf(PropType.node),
+        PropType.node,
+    ]).isRequired,
 };
 
-export const NavbarLink = ({ text, toLink }) => {
+export const NavbarLink = ({ toLink, children }) => {
     return (
         <Link
             className={
-                'ScrollReveal font-semibold hover:underline rounded-lg px-3 md:px-6 py-1 text-white'
+                'ScrollReveal font-semibold hover:underline rounded-lg px-3 md:px-5 py-1 hidden items-center text-white md:flex'
             }
             to={toLink}
         >
-            {text}
+            {children}
         </Link>
     );
 };
 
 NavbarLink.propTypes = {
-    text: PropType.string.isRequired,
     toLink: PropType.string.isRequired,
+    children: PropType.oneOfType([
+        PropType.arrayOf(PropType.node),
+        PropType.node,
+    ]).isRequired,
+};
+
+export const NavbarButton = ({ children }) => {
+    return (
+        <Link
+            className={
+                'bg-transparent border-2 font-bold border-white text-white py-3 px-8 rounded-xl'
+            }
+            target="_blank"
+        >
+            {children}
+        </Link>
+    );
+};
+NavbarButton.propTypes = {
+    children: PropType.oneOfType([
+        PropType.arrayOf(PropType.node),
+        PropType.node,
+    ]).isRequired,
+};
+export const Sidebar = ({ open }) => {
+    return <></>;
+};
+Sidebar.propTypes = {
+    open: PropType.bool.isRequired,
 };

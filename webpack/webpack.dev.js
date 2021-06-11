@@ -4,6 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+
+const webpack = require('webpack');
 module.exports = merge(common, {
     mode: 'development',
     output: {
@@ -19,6 +22,8 @@ module.exports = merge(common, {
         contentBase: path.join(__dirname, './dist'),
         historyApiFallback: true,
         publicPath: '/',
+        hot: true,
+        hotOnly: true,
     },
     devtool: 'eval-source-map',
     plugins: [
@@ -30,8 +35,11 @@ module.exports = merge(common, {
             filename: 'index.html',
         }),
         new CleanWebpackPlugin({ dry: true, verbose: true }),
+        new webpack.HotModuleReplacementPlugin(),
+        new ReactRefreshWebpackPlugin(),
     ],
     optimization: {
         minimize: false,
     },
+    target: 'web',
 });
