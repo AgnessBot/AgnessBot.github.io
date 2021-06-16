@@ -10,9 +10,6 @@ module.exports = merge(common, {
         path: path.resolve(__dirname, '../dist'),
         filename: 'bundle.js',
     },
-    resolve: {
-        extensions: ['.jsx', '.js'],
-    },
     devServer: {
         open: true,
         port: 5000,
