@@ -31,9 +31,6 @@ module.exports = merge(common, {
         }),
         new CleanWebpackPlugin(),
     ],
-    resolve: {
-        extensions: ['.jsx', '.js'],
-    },
     optimization: {
         minimize: true,
         splitChunks: {
