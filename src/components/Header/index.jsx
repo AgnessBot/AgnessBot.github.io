@@ -20,7 +20,7 @@ const HeaderComponent = () => {
                         'ScrollReveal font-secundary_text font-bold text-center max-w-md self-center text-base text-white'
                     }
                 >
-                    Bot of reacion roles, fully customizable embeds, tags,
+                    Bot of reaction roles, fully customizable embeds, tags,
                     welcomes and leaves
                 </p>
                 <div
