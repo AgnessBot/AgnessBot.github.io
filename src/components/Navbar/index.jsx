@@ -7,7 +7,7 @@ const NavbarComponent = () => {
         <nav className={'px-4 py-2 mx-auto bg-blue-burple'}>
             <div
                 className={
-                    'flex justify-between items-center flex-col md:flex-row'
+                    'ScrollReveal flex justify-between items-center flex-col md:flex-row'
                 }
             >
                 <NavbarLogo
