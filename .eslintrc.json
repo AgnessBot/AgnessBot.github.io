@@ -27,10 +27,7 @@
         "comma-dangle": "off",
         "no-nested-ternary": "off",
         "no-underscore-dangle": "off",
-        "indent": [
-            "error",
-            4
-        ],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
         "global-require": "off",
         "no-restricted-syntax": [
             "error",

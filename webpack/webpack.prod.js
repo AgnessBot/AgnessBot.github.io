@@ -9,6 +9,7 @@ module.exports = merge(common, {
     mode: 'production',
     output: {
         path: path.resolve(__dirname, '../dist'),
+        pathinfo: false,
         filename: '[contenthash].js',
         publicPath: '/',
     },
@@ -19,6 +20,7 @@ module.exports = merge(common, {
         new HtmlWebpackPlugin({
             template: './public/index.html',
             filename: 'index.html',
+            inject: 'body',
             minify: {
                 collapseWhitespace: true,
                 keepClosingSlash: true,
@@ -31,13 +33,11 @@ module.exports = merge(common, {
         }),
         new CleanWebpackPlugin(),
     ],
-    resolve: {
-        extensions: ['.jsx', '.js'],
-    },
     optimization: {
         minimize: true,
         splitChunks: {
             chunks: 'all',
+            name: false,
         },
         minimizer: [
             new CssMinimizerPlugin({

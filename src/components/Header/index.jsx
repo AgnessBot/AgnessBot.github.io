@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { HeaderLogo, HeaderButton, FaDiscord } from './HeaderComponents';
+import { HeaderLogo, HeaderButton } from './HeaderComponents';
+// import { FaRobot, FaDiscord } from 'react-icons/fa';
 
 const HeaderComponent = () => {
     return (
@@ -15,12 +16,7 @@ const HeaderComponent = () => {
                     imageAlt="agness logo"
                     text="Agness"
                 />
-
-                <div
-                    className={
-                        'ScrollReveal mt-5 mb-6 flex flex-col justify-center items-center'
-                    }
-                >
+                <div className={'ScrollReveal flex flex-col'}>
                     <strong
                         className={'text-5xl text-white font-extrabold mb-5'}
                     >
@@ -28,25 +24,25 @@ const HeaderComponent = () => {
                     </strong>
                     <p
                         className={
-                            'ScrollReveal font-secundary_text font-bold text-center max-w-md self-center text-base text-white'
+                            'ScrollReveal font-secundary_text font-bold max-w-md text-base text-white'
                         }
                     >
-                        Bot of reacion roles, fully customizable embeds, tags,
+                        Bot of reaction roles, fully customizable embeds, tags,
                         welcomes and leaves
                     </p>
-                    <div className={'mt-5 flex items-center justify-center'}>
+                    <div className={'mt-5 flex space-x-4'}>
                         <HeaderButton
-                            text="Invite me to your server"
                             toLink={
                                 'https://discord.com/oauth2/authorize?client_id=798573830645874718&permissions=8&scope=bot'
                             }
+                            text="Invite me to your server"
                             color="white"
-                        />
+                        ></HeaderButton>
                         <HeaderButton
-                            text="Join the support server"
                             toLink="https://discord.gg/K63NqEDm86"
+                            text="Join the support server"
                             color="black"
-                        />
+                        ></HeaderButton>
                     </div>
                 </div>
             </div>

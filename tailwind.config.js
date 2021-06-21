@@ -31,6 +31,16 @@ module.exports = {
                     circle: '#ED4245',
                 },
             },
+            animation: {
+                rotation: 'spin 0.5s linear 0.5',
+                xd: 'bounceUpDown 2s ease-out infinite',
+            },
+            keyframes: {
+                bounceUpDown: {
+                    '0, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(15px)' },
+                },
+            },
         },
     },
     variants: {

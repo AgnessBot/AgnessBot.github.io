@@ -27,25 +27,30 @@ NavbarLogo.propTypes = {
     ]).isRequired,
 };
 
-export const NavbarLink = ({ toLink, children }) => {
+export const NavbarLink = ({ accessibilityLabel, label, link, iconRender }) => {
     return (
         <Link
+            to={link}
+            aria-label={accessibilityLabel}
             className={
-                'ScrollReveal font-semibold hover:underline rounded-lg px-3 md:px-5 py-1 hidden items-center text-white md:flex'
+                'ScrollReveal hover:underline px-3 md:px-5 py-1 hidden items-center md:flex'
             }
-            to={toLink}
         >
-            {children}
+            <div className={'mx-4'}>
+                <span className={'text-white text-base font-semibold'}>
+                    {label}
+                </span>
+            </div>
+            {iconRender}
         </Link>
     );
 };
 
 NavbarLink.propTypes = {
-    toLink: PropType.string.isRequired,
-    children: PropType.oneOfType([
-        PropType.arrayOf(PropType.node),
-        PropType.node,
-    ]).isRequired,
+    accessibilityLabel: PropType.string.isRequired,
+    label: PropType.string.isRequired,
+    link: PropType.string.isRequired,
+    iconRender: PropType.node.isRequired,
 };
 
 export const NavbarButton = ({ children }) => {

@@ -5,16 +5,12 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-
 const webpack = require('webpack');
 module.exports = merge(common, {
     mode: 'development',
     output: {
         path: path.resolve(__dirname, '../dist'),
         filename: 'bundle.js',
-    },
-    resolve: {
-        extensions: ['.jsx', '.js'],
     },
     devServer: {
         open: true,
@@ -23,7 +19,8 @@ module.exports = merge(common, {
         historyApiFallback: true,
         publicPath: '/',
         hot: true,
-        hotOnly: true,
+        quiet: true,
+        overlay: false,
     },
     devtool: 'eval-source-map',
     plugins: [
@@ -33,6 +30,7 @@ module.exports = merge(common, {
         new HtmlWebpackPlugin({
             template: './public/index.html',
             filename: 'index.html',
+            inject: 'body',
         }),
         new CleanWebpackPlugin({ dry: true, verbose: true }),
         new webpack.HotModuleReplacementPlugin(),

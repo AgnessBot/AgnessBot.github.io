@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import React, { useEffect, Suspense, lazy } from 'react';
-import ScrollReveal from 'scrollreveal';
+import React, { Suspense, lazy } from 'react';
 
 import Navbar from './components/Navbar/index';
 
@@ -9,13 +8,6 @@ const CommandsPage = lazy(() => import('./pages/CommandsPage'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 const App = () => {
-    useEffect(() => {
-        ScrollReveal().reveal('.ScrollReveal', {
-            reset: true,
-            delay: 200,
-            mobile: false,
-        });
-    }, []);
     return (
         <Router>
             <Navbar />
@@ -26,6 +18,7 @@ const App = () => {
                     <Route path="*" component={NotFound} />
                 </Switch>
             </Suspense>
+            {/* <Footer /> */}
         </Router>
     );
 };
