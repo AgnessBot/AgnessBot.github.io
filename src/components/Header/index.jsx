@@ -1,7 +1,7 @@
 import React from 'react';
 
+import icon from '../../assets/agness.png';
 import { HeaderLogo, HeaderButton } from './HeaderComponents';
-// import { FaRobot, FaDiscord } from 'react-icons/fa';
 
 const HeaderComponent = () => {
     return (
@@ -12,7 +12,7 @@ const HeaderComponent = () => {
                 }
             >
                 <HeaderLogo
-                    image="https://i.imgur.com/VdzEQc3.png"
+                    image={icon}
                     imageAlt="agness logo"
                     text="Agness"
                 />
@@ -20,7 +20,7 @@ const HeaderComponent = () => {
                     <strong
                         className={'text-4xl text-white font-extrabold mb-5'}
                     >
-                        A multifunctional bot
+                        Agness
                     </strong>
                     <p
                         className={

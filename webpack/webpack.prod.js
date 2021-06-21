@@ -1,5 +1,4 @@
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
@@ -8,28 +7,13 @@ const common = require('./webpack.common');
 module.exports = merge(common, {
     mode: 'production',
     output: {
+        uniqueName: 'Agness',
         path: path.resolve(__dirname, '../dist'),
-        pathinfo: false,
         filename: '[contenthash].js',
-        publicPath: '/',
     },
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[contenthash].css',
-        }),
-        new HtmlWebpackPlugin({
-            template: './public/index.html',
-            filename: 'index.html',
-            inject: 'body',
-            minify: {
-                collapseWhitespace: true,
-                keepClosingSlash: true,
-                removeComments: true,
-                removeRedundantAttributes: true,
-                removeScriptTypeAttributes: true,
-                removeStyleLinkTypeAttributes: true,
-                useShortDoctype: true,
-            },
         }),
         new CleanWebpackPlugin(),
     ],
@@ -50,7 +34,7 @@ module.exports = merge(common, {
                     ],
                 },
             }),
+            '...'
         ],
     },
-    devtool: 'source-map',
 });

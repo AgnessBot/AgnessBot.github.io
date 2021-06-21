@@ -11,17 +11,16 @@ const CardComponent = ({
     return (
         <div
             className={
-                'ScrollReveal bg-blue-burple flex flex-col lg:flex-row rounded-2xl p-5 m-5 max-w-6xl'
+                'bg-blue-burple flex flex-col lg:flex-row rounded-2xl p-5 m-5 max-w-6xl'
             }
+            data-aos='fade-up'
         >
             {[
                 <img
                     className={
                         'h-auto rounded-2xl max-w-3xl self-center w-full hidden sm:block'
                     }
-                    src={image}
-                    alt={imageAlt}
-                    key={0}
+                    src={image} alt={imageAlt} key={0}
                 />,
                 <div className={'p-5'} key={1}>
                     <h1 className={'font-bold text-2xl text-white'}>{title}</h1>

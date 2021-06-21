@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
+import AOS from 'aos';
 
 import Navbar from './components/Navbar/index';
 
@@ -8,6 +9,10 @@ const CommandsPage = lazy(() => import('./pages/CommandsPage'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 const App = () => {
+    useEffect(() => {
+        AOS.init({ delay: 200, offset: 20 });
+    }, []);
+
     return (
         <Router>
             <Navbar />

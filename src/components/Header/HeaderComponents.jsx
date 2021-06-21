@@ -17,9 +17,6 @@ export const HeaderLogo = ({ image, imageAlt, text }) => {
                     height="250"
                 />
             </div>
-            {/* <p className={'ScrollReveal text-center text-white md:text-4xl text-5xl font-black mb-5'}>
-                {text}
-            </p> */}
         </>
     );
 };
@@ -68,5 +65,5 @@ HeaderButton.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node,
-    ]).isRequired,
+    ]),
 };

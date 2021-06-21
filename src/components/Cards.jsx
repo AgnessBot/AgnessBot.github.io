@@ -1,29 +1,31 @@
 import React from 'react';
 
 import Card from './Card';
+import embedsCard from '../assets/embeds.png';
+import languagesCard from '../assets/languages.png';
+import autorolesCard from '../assets/autoroles.png';
+
+const cards = [{
+    title: 'Multi-language System',
+    description: 'You\'ll be able to choose the language you speak the most, so that you can understand everything perfectly. We&apos;ve Spanish and English at the moment but you can contribute joining our Discord Server!',
+    image: languagesCard,
+    imageAlt: 'Language Command Example'
+}, {
+    title: 'Embed System',
+    description: 'You\'ll be able to create embeds to decorate your server, including it in welcomes, leaves, custom commands (tags), and much more! Be creative as much as you want.',
+    image: embedsCard,
+    imageAlt: 'Embed Command Example'
+}, {
+    title: 'Customized Welcomes and Leaves',
+    description: 'Say Hello to your new members or assign a role to be more organized! By using embeds, you\'ll be able to send them when a user joins or leaves your server. You also have a wide range of variables to use on them!',
+    image: autorolesCard,
+    imageAlt: 'Welcome Autorole Command Example'
+}];
 
 const CardsComponent = () => {
     return (
         <div className={'flex flex-col justify-center items-center pt-5 bg-gray-dark'}>
-            <Card
-                title='Multi-language system.'
-                description='You will be able to choose the language you like the most, so that you can understand everything perfectly. At this moment we have two languages (Spanish and English).'
-                image='https://i.imgur.com/J9v2Pxw.png'
-                imageAlt='lang category'
-            />
-            <Card
-                title='Embed system.'
-                description='You will be able to create rich text, to decorate your server, including it in welcomes, leaves, custom commands (tags), and much more! Remember that creativity is up to you, you are your own boss!'
-                image='https://i.imgur.com/wzK9ZjF.png'
-                imageAlt='embed category'
-                positionFirstImage={true}
-            />
-            <Card
-                title='Customized welcomes and leaves.'
-                description='You can customize the channel, message, embeds and roles that users or bots will receive when a user enters your server (in case of welcomes) or leaves it. The message form, and decoration is set by you.'
-                image='https://i.imgur.com/sPqRBeB.png'
-                imageAlt='welcomes and leaves category'
-            />
+            {cards.map((c, i) => <Card key={i} positionFirstImage={i % 2 !== 0} {...c} />)}
         </div>
     );
 };

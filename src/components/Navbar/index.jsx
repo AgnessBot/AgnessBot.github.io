@@ -3,8 +3,26 @@ import React, { useState } from 'react';
 import { NavbarLogo, NavbarLink } from './NavbarComponents';
 import { FaHome, FaUserAlt, FaBuffer, FaBars } from 'react-icons/fa';
 
+const navLinks = [{
+    accessibilityLabel: 'Home',
+    label: 'Home',
+    link: '/',
+    icon: <FaHome />
+}, {
+    accessibilityLabel: 'Information of Agness',
+    label: 'About',
+    link: '/about',
+    icon: <FaUserAlt />
+}, {
+    accessibilityLabel: 'Commands of Agness',
+    label: 'Commands',
+    link: '/commands',
+    icon: <FaBuffer />
+}];
+
 const NavbarComponent = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
+
     return (
         <nav className={'bg-blue-burple'}>
             <div
@@ -18,24 +36,7 @@ const NavbarComponent = () => {
                         'ScrollReveal flex items-center text-base md:text-lg p-2 text-gray-100'
                     }
                 >
-                    <NavbarLink
-                        accessibilityLabel="Home"
-                        label="Home"
-                        link="/"
-                        iconRender={<FaHome />}
-                    />
-                    <NavbarLink
-                        accessibilityLabel="About for Agness"
-                        label="About"
-                        link="/about"
-                        iconRender={<FaUserAlt />}
-                    />
-                    <NavbarLink
-                        accessibilityLabel="Commands from Agness"
-                        label="Commands"
-                        link="/commands"
-                        iconRender={<FaBuffer />}
-                    />
+                    {navLinks.map((l, i) => <NavbarLink key={i} {...l} />)}
                 </div>
                 <button
                     className="text-white cursor-pointer text-3xl px-3 py-1 rounded bg-transparent md:hidden outline-none focus:outline-none"
@@ -45,7 +46,7 @@ const NavbarComponent = () => {
                     <FaBars />
                 </button>
                 <div
-                    hidden={sidebarOpen}
+                    style={{ display: sidebarOpen ? 'block' : 'none' }}
                     className={
                         'fixed overflow-auto h-screen w-1/2 bg-gray-color-dark-200 top-0 bottom-0 right-0 z-50'
                     }
@@ -56,15 +57,8 @@ const NavbarComponent = () => {
                                 'flex justify-center items-center flex-col space-y-12'
                             }
                         >
-                            <a href="#" className="menu__item">
-                                Home
-                            </a>
-                            <a href="#" className="menu__item">
-                                Pokedex
-                            </a>
-                            <a href="#" className="menu__item">
-                                About
-                            </a>
+                            {navLinks.map((l, i) =>
+                                <a href={l.link} key={i} className="menu__item">{l.label}</a>)}
                         </div>
                     </div>
                 </div>

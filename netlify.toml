@@ -3,17 +3,6 @@ publish="dist"
 command="npm run build"
 
 [[redirects]]
-from = "/robots.txt"
-to = "/robots.txt"
-status = 200
-
-[[redirects]]
 from = "/*"
 to = "/index.html"
 status = 200
-force = false
-
-[[headers]]
-for = "*" # css files too
-[headers.values]
-Cache-Control = "public, max-age=604800"

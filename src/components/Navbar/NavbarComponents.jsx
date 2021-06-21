@@ -18,8 +18,6 @@ export const NavbarLogo = ({ toLink, children }) => {
 };
 
 NavbarLogo.propTypes = {
-    image: PropType.string.isRequired,
-    imageAlt: PropType.string.isRequired,
     toLink: PropType.string.isRequired,
     children: PropType.oneOfType([
         PropType.arrayOf(PropType.node),
@@ -27,7 +25,7 @@ NavbarLogo.propTypes = {
     ]).isRequired,
 };
 
-export const NavbarLink = ({ accessibilityLabel, label, link, iconRender }) => {
+export const NavbarLink = ({ accessibilityLabel, label, link, icon }) => {
     return (
         <Link
             to={link}
@@ -41,7 +39,7 @@ export const NavbarLink = ({ accessibilityLabel, label, link, iconRender }) => {
                     {label}
                 </span>
             </div>
-            {iconRender}
+            {icon}
         </Link>
     );
 };
@@ -50,7 +48,7 @@ NavbarLink.propTypes = {
     accessibilityLabel: PropType.string.isRequired,
     label: PropType.string.isRequired,
     link: PropType.string.isRequired,
-    iconRender: PropType.node.isRequired,
+    icon: PropType.node.isRequired,
 };
 
 export const NavbarButton = ({ children }) => {

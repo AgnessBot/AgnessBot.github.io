@@ -1,9 +1,15 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
     plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            favicon: './src/assets/agness.png',
+            filename: 'index.html',
+        }),
         new CopyPlugin({
             patterns: [{ from: 'public/robots.txt', to: 'robots.txt' }],
         }),
@@ -31,6 +37,13 @@ module.exports = {
                     },
                     'postcss-loader',
                 ],
+            },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: '[contenthash][ext]'
+                }
             },
         ],
     },

@@ -1,5 +1,4 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const { merge } = require('webpack-merge');
@@ -26,11 +25,6 @@ module.exports = merge(common, {
     plugins: [
         new MiniCssExtractPlugin({
             filename: '[name].css',
-        }),
-        new HtmlWebpackPlugin({
-            template: './public/index.html',
-            filename: 'index.html',
-            inject: 'body',
         }),
         new CleanWebpackPlugin({ dry: true, verbose: true }),
         new webpack.HotModuleReplacementPlugin(),
