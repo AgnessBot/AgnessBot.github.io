@@ -4,12 +4,12 @@ import { NavbarLogo, NavbarLink } from './NavbarComponents';
 import { FaHome, FaUserAlt, FaBuffer, FaBars } from 'react-icons/fa';
 
 const NavbarComponent = () => {
-    const [navbarState, setNavbarState] = useState(false);
+    const [sidebarOpen, setSidebarOpen] = useState(false);
     return (
         <nav className={'bg-blue-burple'}>
             <div
                 className={
-                    'ScrollReveal flex justify-between items-center flex-col md:flex-row'
+                    'flex justify-between items-center flex-row px-2.5 py-2'
                 }
             >
                 <NavbarLogo toLink="/">Agness</NavbarLogo>
@@ -40,10 +40,34 @@ const NavbarComponent = () => {
                 <button
                     className="text-white cursor-pointer text-3xl px-3 py-1 rounded bg-transparent md:hidden outline-none focus:outline-none"
                     type="button"
-                    onClick={() => setNavbarState(!navbarState)}
+                    onClick={() => setSidebarOpen(!sidebarOpen)}
                 >
                     <FaBars />
                 </button>
+                <div
+                    hidden={sidebarOpen}
+                    className={
+                        'fixed overflow-auto h-screen w-1/2 bg-gray-color-dark-200 top-0 bottom-0 right-0 z-50'
+                    }
+                >
+                    <div className="navbar__sidebar-items">
+                        <div
+                            className={
+                                'flex justify-center items-center flex-col space-y-12'
+                            }
+                        >
+                            <a href="#" className="menu__item">
+                                Home
+                            </a>
+                            <a href="#" className="menu__item">
+                                Pokedex
+                            </a>
+                            <a href="#" className="menu__item">
+                                About
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
     );

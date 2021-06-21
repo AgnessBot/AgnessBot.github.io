@@ -18,9 +18,9 @@ const HeaderComponent = () => {
                 />
                 <div className={'ScrollReveal flex flex-col'}>
                     <strong
-                        className={'text-5xl text-white font-extrabold mb-5'}
+                        className={'text-4xl text-white font-extrabold mb-5'}
                     >
-                        Agness
+                        A multifunctional bot
                     </strong>
                     <p
                         className={
