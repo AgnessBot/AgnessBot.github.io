@@ -49,7 +49,7 @@ export const HeaderButton = ({ text, toLink, color, children }) => {
             className={`px-4 py-2.5 ${chosenColor.BACKGROUND_COLOR} duration-300 rounded-lg hover:shadow-2xl my-2 ${chosenColor.TEXT_COLOR} ${chosenColor.HOVER} transform hover:scale-110`}
         >
             <a
-                className={`font-bold text-center text-sm`}
+                className={'font-bold text-center text-sm'}
                 href={toLink}
                 target="_blank"
                 rel="noopener noreferrer"
