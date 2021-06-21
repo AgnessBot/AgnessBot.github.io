@@ -9,7 +9,7 @@ const NavbarComponent = () => {
         <nav className={'bg-blue-burple'}>
             <div
                 className={
-                    'ScrollReveal flex justify-between items-center px-4 py-3'
+                    'ScrollReveal flex justify-between items-center flex-col md:flex-row'
                 }
             >
                 <NavbarLogo toLink="/">Agness</NavbarLogo>
