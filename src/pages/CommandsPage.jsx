@@ -5,13 +5,19 @@ import SearchComponent from '../components/SearchComponent';
 
 import usePromise from '../hooks/usePromise';
 import { getCommands } from '../services';
+import useTitle from '../hooks/useTitle';
 
 const CommandsPage = () => {
+    const setTitle = useTitle();
     const [value, setValue] = useState('');
     const [commands, setCommands] = useState([]);
     const { data } = usePromise(getCommands());
 
     console.log(commands);
+
+    useEffect(() => {
+        setTitle('Agness - Commands');
+    }, []);
 
     useEffect(() => {
         if (data) {
