@@ -173,7 +173,7 @@ const TeamSection = () => {
                     ]}
                 />
                 <MemberTeam
-                    avatarURL="https://cdn.discordapp.com/attachments/831183063105929226/859591739961245726/avatar.png"
+                    avatarURL="https://cdn.discordapp.com/attachments/798564494515241011/859916271800549416/avatar.png"
                     name="Abiiee."
                     rolesList="Owner"
                     socialMediaList={[
