@@ -4,9 +4,9 @@
         [
             "@babel/preset-react",
             {
+                "corejs": 3.15,
                 "useBuiltIns": "usage",
-                "corejs": 3,
-                "runtime": "automatic"
+                "targets": "> 0.25%, not dead, not ie 11"
             }
         ]
     ],

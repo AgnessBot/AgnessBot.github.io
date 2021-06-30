@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { FaHome } from 'react-icons/fa';
 
 import useTitle from '../hooks/useTitle';
-
 const NotFound = () => {
     const setTitle = useTitle();
     useEffect(() => {
@@ -28,9 +27,9 @@ const NotFound = () => {
                         'mt-2 text-gray-color_text text-xl text-center max-w-2xl'
                     }
                 >
-                    If this continues happening or you think it&apos;s an error, please
-                    join our Discord server and notify us. Otherwise you can go to the
-                    home page by clicking the button below
+                    If this continues happening or you think it&apos;s an error,
+                    please join our Discord server and notify us. Otherwise you
+                    can go to the home page by clicking the button below
                 </strong>
             </div>
             <div

@@ -2,36 +2,32 @@ import PropType from 'prop-types';
 import React from 'react';
 
 const CardComponent = ({
-    title,
+    category,
     description,
-    image,
-    imageAlt,
-    positionFirstImage,
+    iconComponent,
+    iconColor,
+    iconSize,
+    ...props
 }) => {
     return (
         <div
-            className={
-                'bg-blue-burple flex flex-col lg:flex-row rounded-2xl p-5 m-5 max-w-6xl'
-            }
-            data-aos='fade-up'
+            className="flex justify-center items-center flex-col mx-5 my-7"
+            {...props}
         >
-            {[
-                <img
-                    className={
-                        'h-auto rounded-2xl max-w-3xl self-center w-full hidden sm:block'
-                    }
-                    src={image} alt={imageAlt} key={0}
-                />,
-                <div className={'p-5'} key={1}>
-                    <h1 className={'font-bold text-2xl text-white'}>{title}</h1>
-                    <br />
-                    <p className={'text-white text-xl'}>{description}</p>
-                </div>,
-            ]
-                .map((c) => [c])
-                .reduce((a, b) =>
-                    positionFirstImage ? a.concat(b) : b.concat(a)
-                )}
+            <div className="flex justify-center items-center rounded-full bg-gray-600 h-24 w-24 shadow-xl">
+                {React.createElement(iconComponent, {
+                    color: iconColor,
+                    size: iconSize,
+                })}
+            </div>
+            <div className="flex justify-center items-center flex-col max-w-xs mt-4">
+                <h2 className="text-center font-black text-white text-xl">
+                    {category}
+                </h2>
+                <p className="text-gray-300 text-sm text-center">
+                    {description}
+                </p>
+            </div>
         </div>
     );
 };
@@ -39,13 +35,14 @@ const CardComponent = ({
 export default CardComponent;
 
 CardComponent.propTypes = {
-    title: PropType.string.isRequired,
+    category: PropType.string.isRequired,
     description: PropType.string.isRequired,
-    image: PropType.string.isRequired,
-    imageAlt: PropType.string.isRequired,
-    positionFirstImage: PropType.bool.isRequired,
+    iconComponent: PropType.node.isRequired,
+    iconColor: PropType.string.isRequired,
+    iconSize: PropType.string.isRequired,
 };
 
 CardComponent.defaultProps = {
-    positionFirstImage: false,
+    iconColor: '#ffffff',
+    iconSize: 50,
 };

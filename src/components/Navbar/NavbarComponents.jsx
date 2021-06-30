@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from '../Link';
 import PropType from 'prop-types';
 import React from 'react';
 
@@ -26,18 +26,17 @@ NavbarLogo.propTypes = {
 };
 
 export const NavbarLink = ({ accessibilityLabel, label, link, icon }) => {
+    //hover:text-black hover:text-opacity-100 hover:bg-white hover:bg-blue-blurple_hover
     return (
         <Link
             to={link}
             aria-label={accessibilityLabel}
             className={
-                'ScrollReveal hover:underline px-3 md:px-5 py-1 hidden items-center md:flex'
+                ' px-2 py-1.5 hidden items-center md:flex md:px-5 duration-300 hover:bg-gray-600 rounded-3xl mx-1.5'
             }
         >
             <div className={'mx-4'}>
-                <span className={'text-white text-base font-semibold'}>
-                    {label}
-                </span>
+                <span className={'text-base font-semibold'}>{label}</span>
             </div>
             {icon}
         </Link>

@@ -3,9 +3,14 @@
         "browser": true,
         "es2021": true
     },
+    "plugins": [
+        "react",
+        "eslint-plugin-react-hooks"
+    ],
     "extends": [
         "plugin:react/recommended",
-        "standard"
+        "standard",
+        "prettier"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -19,10 +24,8 @@
             "version": "detect"
         }
     },
-    "plugins": [
-        "react"
-    ],
     "rules": {
+        "operator-linebreak": ["error", "after", { "overrides": { "?": "before", ":": "before" } }],
         "linebreak-style": "off",
         "comma-dangle": "off",
         "no-nested-ternary": "off",

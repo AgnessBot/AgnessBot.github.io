@@ -18,6 +18,7 @@ module.exports = {
                 },
                 blue: {
                     burple: '#5865F2',
+                    blurple_hover: 'var(--blue-hover)',
                 },
                 purple: {
                     discordOld: '#7289DA',

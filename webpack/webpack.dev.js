@@ -5,6 +5,7 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const webpack = require('webpack');
+const WebpackBar = require('webpackbar');
 module.exports = merge(common, {
     mode: 'development',
     output: {
@@ -29,6 +30,7 @@ module.exports = merge(common, {
         new CleanWebpackPlugin({ dry: true, verbose: true }),
         new webpack.HotModuleReplacementPlugin(),
         new ReactRefreshWebpackPlugin(),
+        new WebpackBar(),
     ],
     optimization: {
         minimize: false,

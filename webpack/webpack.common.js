@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+/** @type {import('webpack').Configuration} */
 
 module.exports = {
     entry: './src/index.js',
@@ -42,8 +43,8 @@ module.exports = {
                 test: /\.(png|jpe?g|gif)$/i,
                 type: 'asset/resource',
                 generator: {
-                    filename: '[contenthash][ext]'
-                }
+                    filename: '[contenthash][ext]',
+                },
             },
         ],
     },

@@ -3,28 +3,32 @@ import React, { useState } from 'react';
 import { NavbarLogo, NavbarLink } from './NavbarComponents';
 import { FaHome, FaUserAlt, FaBuffer, FaBars } from 'react-icons/fa';
 
-const navLinks = [{
-    accessibilityLabel: 'Home',
-    label: 'Home',
-    link: '/',
-    icon: <FaHome />
-}, {
-    accessibilityLabel: 'Information of Agness',
-    label: 'About',
-    link: '/about',
-    icon: <FaUserAlt />
-}, {
-    accessibilityLabel: 'Commands of Agness',
-    label: 'Commands',
-    link: '/commands',
-    icon: <FaBuffer />
-}];
+const navLinks = [
+    {
+        accessibilityLabel: 'Home',
+        label: 'Home',
+        link: '/',
+        icon: <FaHome />,
+    },
+    {
+        accessibilityLabel: 'Information of Agness',
+        label: 'About',
+        link: '/about',
+        icon: <FaUserAlt />,
+    },
+    {
+        accessibilityLabel: 'Commands of Agness',
+        label: 'Commands',
+        link: '/commands',
+        icon: <FaBuffer />,
+    },
+];
 
 const NavbarComponent = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     return (
-        <nav className={'bg-blue-burple'}>
+        <nav className={'bg-gray-700'}>
             <div
                 className={
                     'flex justify-between items-center flex-row px-2.5 py-2'
@@ -36,7 +40,9 @@ const NavbarComponent = () => {
                         'ScrollReveal flex items-center text-base md:text-lg p-2 text-gray-100'
                     }
                 >
-                    {navLinks.map((l, i) => <NavbarLink key={i} {...l} />)}
+                    {navLinks.map((l, i) => (
+                        <NavbarLink key={i} {...l} />
+                    ))}
                 </div>
                 <button
                     className="text-white cursor-pointer text-3xl px-3 py-1 rounded bg-transparent md:hidden outline-none focus:outline-none"
@@ -57,8 +63,11 @@ const NavbarComponent = () => {
                                 'flex justify-center items-center flex-col space-y-12'
                             }
                         >
-                            {navLinks.map((l, i) =>
-                                <a href={l.link} key={i} className="menu__item">{l.label}</a>)}
+                            {navLinks.map((l, i) => (
+                                <a href={l.link} key={i} className="menu__item">
+                                    {l.label}
+                                </a>
+                            ))}
                         </div>
                     </div>
                 </div>

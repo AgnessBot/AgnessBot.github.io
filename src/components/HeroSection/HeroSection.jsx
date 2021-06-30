@@ -30,20 +30,20 @@ HeaderLogo.propTypes = {
 export const HeaderButton = ({ text, toLink, color, children }) => {
     const colors = {
         white: {
-            BACKGROUND_COLOR: 'bg-white',
+            BACKGROUND_COLOR: 'bg-gray-100',
             TEXT_COLOR: 'text-black',
-            HOVER: 'hover:text-blue-burple',
+            HOVER: 'hover:bg-white',
         },
         black: {
-            BACKGROUND_COLOR: 'bg-gray-dark',
+            BACKGROUND_COLOR: 'bg-gray-800',
             TEXT_COLOR: 'text-white',
-            HOVER: 'hover:bg-gray-color_hover',
+            HOVER: 'hover:bg-gray-900',
         },
     };
     const chosenColor = colors[color];
     return (
         <div
-            className={`px-4 py-2.5 ${chosenColor.BACKGROUND_COLOR} duration-300 rounded-lg hover:shadow-2xl my-2 ${chosenColor.TEXT_COLOR} ${chosenColor.HOVER} transform hover:scale-110`}
+            className={`px-5 py-3 ${chosenColor.BACKGROUND_COLOR} duration-300 rounded-lg hover:shadow-2xl my-2 ${chosenColor.TEXT_COLOR} ${chosenColor.HOVER} transform hover:scale-110`}
         >
             <a
                 className={'font-bold text-center text-sm'}
